@@ -5,3 +5,11 @@
 .salmon-text {
     color: salmon;
 }
+
+.indigo-text {
+    color: indigo;
+}
+
+.big-text {
+    font-size: 2.25rem;
+}

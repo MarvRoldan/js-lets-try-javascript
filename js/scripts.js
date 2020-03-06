@@ -94,8 +94,63 @@ document.body.appendChild ( myDataList );
  * Collecting elements.
  */
 
-// Get bu ID:
+// Get by ID:
 var myHeading = document.getElementById( "my-heading" );
 myHeading.title = "This is a heading."; // Tooltip attribute.
-myHeading.style.color = "darkgray"; // Try to aviod using inline styles... this is the CSS file's job!!!
+// myHeading.style.color = "darkgray"; // Try to aviod using inline styles... this is the CSS file's job!!!
 myHeading.className = "gray-text"; // Use classes instead!
+
+/**
+ * Events!
+ */
+
+ // We can add event-listeners to a targeted element.
+myHeading.addEventListener( "mouseover" /*  Here we say whcih event we are targeting.*/, function (event /* We can capture info about the event.*/ ) {
+    this.className = "salmon-text"; /* In an event, the "this" keyword represents our element (myHeading). */
+} );
+
+
+myHeading.addEventListener( "mouseleave", function (event) {
+    this.className = "indigo-text";
+} );
+
+ // When you stop hovering...
+ myHeading.addEventListener( "click", function ( event ) {
+     // The class we want to add.
+     var bigClass = "big-text";
+
+     if( !this.className.includes( bigClass )) // Exclamation means NOT. So it fires on the OPPOSITE. Good to do checks like this so we don't have 500 of the same class on here if the user keeps clicking!
+     {
+        this.className += " big-text"; // THERE IS A SPACE BETWEEN "__big.
+    // Remember, you must have to space between classes when assigning multiple.
+     }
+} );
+
+/**
+* Let's make a function.
+*/
+
+function addTwoNumbers( x,y ) 
+{
+    x = Number ( x ); // Enforce data-type (number.)
+    y = Number ( y ); // Enforce data-type ( number.)
+    return ( x + y ); // Add the two together.
+}
+
+// Return current date as a string.
+function currentDayString () 
+{
+    // New date object. 
+    var date = new Date(); 
+    // Declare a string we can store date info in.
+    var dateString = "";
+    dateString += date.getFullYear(); // Full four digit year.
+    dateString += "."; // "." for formatting.
+    dateString += ( date.getMonth() + 1 ); // + 1 because it starts at 0.
+    dateString += ".";
+    dateString += date.getDay();
+    return dateString;
+}
+
+// Output to console.
+console.log("The current date is: \r\n" + currentDayString() ); // \r\n is return/newline - these will now output on TWO lines in your console.
