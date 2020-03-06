@@ -57,15 +57,14 @@ var myArrayOfDataTypes = [
  * Creating elements for a webpage.(Adding to the DOM!)
  */
 
+ // Create datalist.
 var myDataList = document.createElement( "DL" ); // Wont't show yet! We didn't tell it where to go. 
-
-// Create datalist title.
-var dt1 = document.createElement( "DT" );
 
 // Let's loop through the array so we don;t have to type out each item!    
 for ( var i = 0; i < myArrayOfDataTypes.length; i++ )
 { // (ASSIGNMENT; TERMINATION CONDITION; ITERATION)
     // Create datalist title.
+
     // Create datalist type.
     var dataListTitle = document.createElement( "DT" );
     dataListTitle.textContent = typeof myArrayOfDataTypes[i]; // Output the datatype.
@@ -79,5 +78,24 @@ for ( var i = 0; i < myArrayOfDataTypes.length; i++ )
     myDataList.appendChild ( dataListData );
 }
 
+var myHeadingText = "Our Data-Type Test:";
+
+// This is adding HTML to the end of our body.
+document.body.innerHTML += `<!-- Back ticks are used in JS for multi-line srtings. -->
+    <h2>
+        `+myHeadingText/* Concatenating strings! */+`
+    </h2>
+`;
+
 // Add ALL of that to the body! Yay! We should be able to see it 
 document.body.appendChild ( myDataList );
+
+/**
+ * Collecting elements.
+ */
+
+// Get bu ID:
+var myHeading = document.getElementById( "my-heading" );
+myHeading.title = "This is a heading."; // Tooltip attribute.
+myHeading.style.color = "darkgray"; // Try to aviod using inline styles... this is the CSS file's job!!!
+myHeading.className = "gray-text"; // Use classes instead!
