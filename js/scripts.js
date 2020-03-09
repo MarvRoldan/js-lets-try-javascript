@@ -233,3 +233,29 @@ var newObject = {
         return this.myNum;
     }
 };
+
+/*
+* Object constructors.
+*/
+
+// Here is our blueprint for "Person" objects.
+function Person ( name, age, hobbies ) {
+    this.name = name;
+    this.age = age;
+    this.hobbies = hobbies;
+}
+
+// Let's make a new intance of "Person!" This is called an object.
+var jerry = new Person("Jerry", 61, ["snowboarding", "action movies", "programming"]);
+
+// And another! Isn't this easier than typing out a whole object /every/ time!?
+// Can be formatted this way.
+var sally = new Person( 
+    "Sally", // name:
+    36, // age:
+    [ // hobbies:
+        "daredevil biking", 
+        "skydiving", 
+        "teaching"
+    ]
+);
