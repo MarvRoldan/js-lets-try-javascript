@@ -185,6 +185,51 @@ var myNavButton = document.querySelector ( ".menu-button" );
 
 // Let's listen for a click on this.
 myNavButton.addEventListener( "click", function ( event ) {
-    // When clicked, add/rembe the "nav-open" class (in HTML.)
+    // When clicked, add/remove the "nav-open" class (in HTML.)
     myNav.classList.toggle( "nav-open" );
 } );
+
+/**
+* Let's dig in to objects!
+*/
+
+/* JavaScript Object Notation (JSON) */ 
+var myObject = { /** Valid JSON format. */
+    name: "Jerry",
+    age: 61,
+    hobbies: [
+        "snowboarding",
+        "action movies"
+    ]
+};
+
+// Reads the whole object.
+console.log( myObject );
+
+// Extracting property values...
+console.log( 'Object "Name": ' + myObject.name );
+console.log( 'Object "age": ' + myObject.age );
+console.log( 'Object "hobbies": ' + myObject.hobbies[0] +
+', ' + myObject.hobbies[1]);
+
+// Lets add to the hobbies array... just like normal! It is an array, afterall. 
+// (Just stored in a property instead of a variable this time.)
+myObject.hobbies.push( "programming" );
+console.log( "Updated hobbies:" ); 
+console.log( myObject.hobbies ); 
+
+console.log( "Updated object:" ); 
+console.log( myObject ); 
+
+/*
+* Let's ramp things up a bit with a method.
+*/ 
+
+var newObject = {
+    myNum: 5, // Property.
+    updateNum: function () { //Here is a method! Note the new SyntaxError, verus a function.
+        // Difference from a function? 
+        this.myNum = this.myNum + 5;
+        return this.myNum;
+    }
+};
