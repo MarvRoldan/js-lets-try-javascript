@@ -243,6 +243,15 @@ function Person ( name, age, hobbies ) {
     this.name = name;
     this.age = age;
     this.hobbies = hobbies;
+    this.sayGoodbye = function () { // Setting up a method in a constructor function.
+        document.body.innerHTML += `
+            <p>
+                This is 
+                <strong>` + this.name + `</strong>,
+                saying <em>goodbye</em>!
+            </p>
+        `;
+    };
 }
 
 // Let's make a new intance of "Person!" This is called an object.
