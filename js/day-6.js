@@ -66,6 +66,47 @@ function divideNums ( x, y ) { // Division.
     return ( x / y ); // Quotient.
 }
 
-function myMath ( operation, x, y ) {
-
+function myMath ( operation ) {
+    switch ( operation ) {
+        case "add":
+            return addNums; // "RETURN" kills the function, so breaks are optional here.
+        case "subtract":
+            return subtractNums;
+        case "multiply":
+            return multiplyNums;
+        case "divide":
+            return divideNums;
+        default:
+            return "Invalid operation.";
+    }
 }
+
+// console.log ( myMath ("add", 1, 1) );
+// console.log( myMath("add")( 1, 1 ) ); Can be done this way as well. 
+
+// Testing function.
+var result = myMath( "divide" )( 9, 3 ); // result = 3
+console.log( result );
+var newResult = myMath( "multiply" )(2, result ); // newResult = 6
+console.log( newResult );
+
+/**
+ * Now let's try with... anonymous functions.
+ */
+
+function newTestFunction ( myString ) {
+    myString = "Entered string is: " + myString;
+    return function (additionalString) {
+        if ( additionalString != undefined ) {
+            myString += ", " + additionalString;
+        }
+        return function (yetAnotherString) {
+            if ( yetAnotherString != undefined ) {
+                myString += ", " + yetAnotherString + "!!!";
+            }
+            return myString;
+        }
+    }
+}
+
+console.log( newTestFunction( " A B C D E F G" )( "H I J K L M N O P ")( "Q R S T U V W X Y Z") );
